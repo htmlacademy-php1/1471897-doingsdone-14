@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set('Europe/Moscow');
 require_once('helpers.php');
+require_once('functions.php');
 $projects = ['Входящие', 'Учеба', 'Работа', 'Домашние дела', 'Авто'];
 $tasks = [
     [
