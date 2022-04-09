@@ -142,3 +142,13 @@ function include_template($name, array $data = []) {
 
     return $result;
 }
+
+$amount = function countTasks($tasks, $project) {
+    foreach ($tasks as $task) {
+            if ($task ['category'] === $project) {
+                $tc = $tc + 1;
+       }
+    } return $tc;
+}
+
+?>
