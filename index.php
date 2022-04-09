@@ -1,9 +1,8 @@
 <?php
 // показывать или нет выполненные задачи
 $show_complete_tasks = rand(0, 1);
-?>
-<?php
-$projects = ["Входящие", "Учеба", "Работа", "Домашние дела", "Авто"];
+
+$projects = ['Входящие', 'Учеба', 'Работа', 'Домашние дела', 'Авто'];
 $tasks = [
     [
     'task_name' => 'Собеседование в IT компании',
@@ -48,6 +47,18 @@ $tasks = [
     ]
 ]
 ?>
+<?php
+$tc = 0;
+$project;
+$amount = function($tasks, $project) {
+    foreach ($tasks as $task) {
+            if ($task ['category'] === $project) {
+                $tc = $tc + 1;
+       }
+    } return $tc;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -91,7 +102,8 @@ $tasks = [
                     <ul class="main-navigation__list">
                         <li class="main-navigation__list-item">
                             <a class="main-navigation__list-item-link" href="#"><?= $project ?></a>
-                            <span class="main-navigation__list-item-count">0</span>
+                            <span class="main-navigation__list-item-count">
+                            </span>
                         </li>
                     </ul>
                     <?php endforeach; ?>
@@ -125,9 +137,9 @@ $tasks = [
                     </label>
                 </div>
 
-            <?php foreach ($tasks as $task): ?>
-                <?php if ($task['completed'] === true and $show_complete_tasks === 0): continue; endif; ?>
                 <table class="tasks">
+                    <?php foreach ($tasks as $task): ?>
+                    <?php if ($task['completed'] === true and $show_complete_tasks === 0): continue; endif; ?>
                     <tr class="tasks__item task <?php if ($task['completed'] === true): ?> task--completed<?php endif; ?>">
                         <td class="task__select">
                             <label class="checkbox task__checkbox">
@@ -138,8 +150,9 @@ $tasks = [
                         <td class="task__date"><?= $task['date_of_completion'] ?></td>
                         <td class="task__controls"><?= $task['category'] ?></td>    
                     </tr>
+                    <?php endforeach; ?>
                 </table>
-                <?php endforeach; ?>
+               
             </main>
         </div>
     </div>
@@ -208,3 +221,4 @@ $tasks = [
 <script src="script.js"></script>
 </body>
 </html>
+
