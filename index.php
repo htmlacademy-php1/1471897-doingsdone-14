@@ -1,13 +1,13 @@
 <?php
+$show_complete_tasks = rand(0, 1);
 date_default_timezone_set('Europe/Moscow');
 require_once('helpers.php');
 require_once('functions.php');
-$show_complete_tasks = rand(0, 1);
 $projects = ['Входящие', 'Учеба', 'Работа', 'Домашние дела', 'Авто'];
 $tasks = [
     [
     'task_name' => 'Собеседование в IT компании',
-    'date_of_completion' => '01.12.2019',
+    'date_of_completion' => '01.12.2029',
     'category' => 'Работа',
     'completed' => false
     ],
@@ -50,7 +50,8 @@ $tasks = [
 
 $page_content = include_template('main.php', [
 'tasks' => $tasks,
-'projects' => $projects
+'projects' => $projects,
+'show_complete_tasks' => $show_complete_tasks
 ]);
 
 $layout_content = include_template('layout.php', [
