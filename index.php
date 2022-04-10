@@ -2,6 +2,7 @@
 date_default_timezone_set('Europe/Moscow');
 require_once('helpers.php');
 require_once('functions.php');
+$show_complete_tasks = rand(0, 1);
 $projects = ['Входящие', 'Учеба', 'Работа', 'Домашние дела', 'Авто'];
 $tasks = [
     [
@@ -58,7 +59,7 @@ $layout_content = include_template('layout.php', [
     'title' => 'Дела в порядке'
 ]);
 print($layout_content);
-?>
+
 
 
 
