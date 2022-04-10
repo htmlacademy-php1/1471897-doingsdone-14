@@ -28,7 +28,7 @@ function task_date_complet($task) {
     $end_timestamp = strtotime($task ['date_of_completion']);
     $timestamp_diff = $end_timestamp - $timestamp;
     $days_until_end = $timestamp_diff / $seconds_in_day;
-    if ($days_until_end < 1) {
+    if ($days_until_end < 1 and ($task['date_of_completion'] != 0)) {
         $alert = 'task--important';
     } return $alert;
 }
