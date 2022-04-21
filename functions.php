@@ -6,21 +6,20 @@
 * 
 * @return int $task_count Число задач в проекте
 */
-
 function countTasks($tasks, $project) {
     $task_count = 0;
     foreach ($tasks as $task) {
-    if ($task ['category'] === $project) {$task_count++;}
-    }return $task_count;
+        if ($task ['category'] === $project) {
+            $task_count++;
+        }
+    } return $task_count;
 }
-
 /** 
 * Считает количество дней до дедлайна, если количество дней меньше 1 - добавляет задаче класс, иначе - пустую строку
 * @param array $task Массив с информацией о задаче
 * 
 * @return string $alert Класс задачи
 */
-
 function task_date_complet($task) { 
     $alert = '';
     $timestamp = time();

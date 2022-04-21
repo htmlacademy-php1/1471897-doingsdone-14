@@ -28,7 +28,7 @@ $tasks = [
 
     [
     'task_name' => 'Встреча с другом',
-    'date_of_completion' => '22.12.2019',
+    'date_of_completion' => '10.04.2022',
     'category' => 'Входящие',
     'completed' => false
     ],
@@ -60,9 +60,3 @@ $layout_content = include_template('layout.php', [
     'title' => 'Дела в порядке'
 ]);
 print($layout_content);
-
-
-
-
-
-
