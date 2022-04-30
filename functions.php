@@ -12,7 +12,8 @@ function countTasks($tasks, $project) {
         if ($task ['category'] === $project) {
             $task_count++;
         }
-    } return $task_count;
+    } 
+    return $task_count;
 }
 /** 
 * Считает количество дней до дедлайна, если количество дней меньше 1 - добавляет задаче класс, иначе - пустую строку
