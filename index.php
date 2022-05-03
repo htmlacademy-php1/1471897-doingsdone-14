@@ -3,6 +3,7 @@ $show_complete_tasks = rand(0, 1);
 date_default_timezone_set('Europe/Moscow');
 require_once('helpers.php');
 require_once('functions.php');
+/*
 $projects = ['Входящие', 'Учеба', 'Работа', 'Домашние дела', 'Авто'];
 $tasks = [
     [
@@ -47,6 +48,26 @@ $tasks = [
     'completed' => false
     ]
 ];
+*/
+$con = mysqli_connect("localhost", "root", "", "dela_v_poryadke");
+if ($con == false) {
+   print("Ошибка подключения: " . mysqli_connect_error());
+};
+mysqli_set_charset($con, "utf8");
+
+$sql_projects = "SELECT * FROM projects WHERE user_id = 1";
+$sqlresult_projects = mysqli_query($con, $sql_projects);
+$projects = mysqli_fetch_all($sqlresult_projects, MYSQLI_ASSOC);
+foreach ($projects as $project) {
+   print($project['name']);
+}
+
+$sql_tasks = "SELECT * FROM tasks WHERE user_id= 1";
+$sqlresult_tasks = mysqli_query($con, $sql_tasks);
+$tasks = mysqli_fetch_all($sqlresult_tasks, MYSQLI_ASSOC);
+foreach ($tasks as $task) {
+   print($task['name']);
+}
 
 $page_content = include_template('main.php', [
 'tasks' => $tasks,
